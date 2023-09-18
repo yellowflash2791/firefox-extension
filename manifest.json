@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "BrowseSafe",
+  "version": "1.0",
+  "description": "Blocks new tab creation",
+  "permissions": ["tabs","storage","https://extensionpay.com/*"],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  
+  "background": {
+//    "scripts": ["background.js","ExtPay.js"], 
+    "page": "background.html"	
+  }
+
+}
+

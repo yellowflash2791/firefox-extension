@@ -1,0 +1,29 @@
+button {
+  font-size: 16px;
+  padding: 12px 24px;
+  margin: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#enableButton {
+  background-color: red;
+  color: white;
+}
+
+#payButton {
+  background-color: blue;
+  color: white;
+}
+
+#loginButton {
+  background-color: gray;
+  color: white;
+}
+
