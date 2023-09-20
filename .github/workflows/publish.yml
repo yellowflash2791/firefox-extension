@@ -1,0 +1,31 @@
+name: Publish Firefox Extension
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install web-ext
+      run: npm install -g web-ext
+
+    - name: Build Extension
+      run: web-ext build -s ./ --overwrite-dest
+
+    - name: Publish to Firefox Add-ons
+      env:
+        WEB_EXT_JWT_ISSUER: ${{ secrets.WEB_EXT_JWT_ISSUER }}
+        WEB_EXT_JWT_SECRET: ${{ secrets.WEB_EXT_JWT_SECRET }}
+      run: web-ext sign --api-key=$WEB_EXT_JWT_ISSUER --api-secret=$WEB_EXT_JWT_SECRET --source-dir ./ --artifacts-dir ./
