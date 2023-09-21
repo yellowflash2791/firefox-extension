@@ -15,37 +15,46 @@ document.addEventListener("DOMContentLoaded", function() {
     updateUI();  // Update UI based on fetched states
   });
 
-  // Function to update the UI based on current states
-  function updateUI() {
-    if (isBlocking) {
-      enableButton.textContent = "ON";
-      enableButton.style.backgroundColor = "green";
-    } else {
-      enableButton.textContent = "OFF";
-      enableButton.style.backgroundColor = "red";
-    }
 
+  const subscribedText = document.getElementById("subscribedText"); // Get reference to the "Subscribed?" text
+
+
+  function updateUI() {
     if (isPaid) {
-      paymentStatus.textContent = "Subscription Active";
-      payButton.style.display = "none";
-      loginButton.style.display = "none";	
+       paymentStatus.textContent = "Active";
+       payButton.style.display = "none";
+       loginButton.style.display = "none";
+       enableButton.style.display = "block";
+       subscribedText.style.display = "none"; 
+       paymentStatus.classList.remove('inactive-status');
+       paymentStatus.classList.add('active-status');
+       if (isBlocking) {
+         enableButton.textContent = "ON";
+         enableButton.style.backgroundColor = "green";
+       } else {
+         enableButton.textContent = "OFF";
+          enableButton.style.backgroundColor = "red";
+       }
+
     } else {
-      paymentStatus.textContent = "Subscription Inactive";
+      paymentStatus.textContent = "Inactive";
       payButton.style.display = "block";
       loginButton.style.display = "block";
+      enableButton.style.display = "none";
+      subscribedText.style.display = "block"; // Show the "Subscribed?" text if user is not paid
+      paymentStatus.classList.add('inactive-status');
+      paymentStatus.classList.remove('active-status'); 
     }
   }
 
-  // Toggle the enableButton state and send a message to the background script
   enableButton.addEventListener("click", function() {
-    isBlocking = !isBlocking; // Toggle state
+    isBlocking = !isBlocking; 
     chrome.runtime.sendMessage({action: "toggleState"}, function(response) {
-      isBlocking = response.isBlocking; // Update with the actual state from the background script
+      isBlocking = response.isBlocking; 
       updateUI();
     });
   });
 
-  // Handle payButton clicks and send a message to the background script
   payButton.addEventListener("click", function() {
     chrome.runtime.sendMessage({action: "goToPaymentPage"});
   });

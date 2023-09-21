@@ -1,29 +1,57 @@
-button {
-  font-size: 16px;
-  padding: 12px 24px;
-  margin: 8px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 10px;
+    width: 200px; /* Adjust this width based on your preference */
+    background-color: #f5f5f5;
 }
 
-button:hover {
-  opacity: 0.8;
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#enableButton {
-  background-color: red;
-  color: white;
+.status-text {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
-#payButton {
-  background-color: blue;
-  color: white;
+.action-button {
+    background-color: #4CAF50; /* Primary Green Color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-#loginButton {
-  background-color: gray;
-  color: white;
+.action-button:hover {
+    background-color: #45a049; /* Darken green color on hover */
 }
 
+.secondary-text {
+    font-size: 14px;
+    color: #777;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.secondary-button {
+    background-color: #bbb; /* Secondary Grey Color */
+}
+
+.secondary-button:hover {
+    background-color: #aaa; /* Darken grey color on hover */
+}
+
+.inactive-status {
+    color: red;
+}
+
+.active-status {
+    color: green;
+}

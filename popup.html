@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Popup</title>
-    <script src="popup.js"></script>
-    <script src="ExtPay.js"></script>
-    <script src="background.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extension Popup</title>
+    <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-    <div id="paymentStatus">Checking payment status...</div>
-    <button id="payButton" style="display:none;">Payment Page</button>
-    <br>
-    <button id="enableButton">Enable</button>
-    <br>
-    <button id="loginButton">Log In</button>
-
+    <div class="container">
+        <div id="paymentStatus" class="status-text">Subscription Inactive</div>
+        <button id="payButton" class="action-button">Pay</button>
+        <div id="subscribedText" class="status-text secondary-text">Subscribed already?</div>
+        <button id="loginButton" class="action-button secondary-button">Login</button>
+        <button id="enableButton" class="action-button" style="display: none;">OFF</button>
+    </div>
+    <script src="popup.js"></script>
 </body>
 </html>
 
