@@ -24,11 +24,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     sendResponse({isBlocking: isBlocking});
   } else if (message.action === "goToPaymentPage") {
         extpay.openPaymentPage();
-//      extpay.openLoginPage();
 
   } else if (message.action === "goToLoginPage") {
         extpay.openLoginPage();  // Open the login page
-  }
+  } 
+
 
 
 });

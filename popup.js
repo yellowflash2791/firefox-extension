@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const paymentStatus = document.getElementById("paymentStatus");
   const payButton = document.getElementById("payButton");
   const loginButton = document.getElementById("loginButton");
-
+  const cancelSubscriptionButton = document.getElementById("cancelSubscriptionButton");
+  const cancelSubscribedText = document.getElementById("cancelSubscribedText");
 
   let isBlocking = false;  // Initialize state
   let isPaid = false;  // Initialize payment state
@@ -28,6 +29,8 @@ document.addEventListener("DOMContentLoaded", function() {
        subscribedText.style.display = "none"; 
        paymentStatus.classList.remove('inactive-status');
        paymentStatus.classList.add('active-status');
+       cancelSubscribedText.style.display = "block";
+       cancelSubscriptionButton.style.display = "block";
        if (isBlocking) {
          enableButton.textContent = "ON";
          enableButton.style.backgroundColor = "green";
@@ -42,6 +45,8 @@ document.addEventListener("DOMContentLoaded", function() {
       loginButton.style.display = "block";
       enableButton.style.display = "none";
       subscribedText.style.display = "block"; // Show the "Subscribed?" text if user is not paid
+      cancelSubscribedText.style.display = "none";
+      cancelSubscriptionButton.style.display = "none";
       paymentStatus.classList.add('inactive-status');
       paymentStatus.classList.remove('active-status'); 
     }
@@ -63,6 +68,10 @@ document.addEventListener("DOMContentLoaded", function() {
      chrome.runtime.sendMessage({action: "goToLoginPage"});
   });
 
+  cancelSubscriptionButton.addEventListener("click", function() {
+    chrome.runtime.sendMessage({action: "goToPaymentPage"});
+
+  });
 
 });
 

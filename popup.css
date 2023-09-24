@@ -55,3 +55,19 @@ body {
 .active-status {
     color: green;
 }
+
+.cancel-button {
+    background-color: #f44336; /* Red Color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cancel-button:hover {
+    background-color: #d32f2f; /* Darken red color on hover */
+}
