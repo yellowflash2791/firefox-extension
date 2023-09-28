@@ -7,14 +7,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
 
     - name: Publish Firefox Add-on
       uses: trmcnvn/firefox-addon@v1
       with:
         uuid: '{62e73e16-c99e-4090-be20-c93731bacf79}'
-        xpi: build/popup.xpi
+        xpi: popupblocker.xpi
         manifest: manifest.json
         api-key: ${{ secrets.WEB_EXT_JWT_ISSUER }}
         api-secret: ${{ secrets.WEB_EXT_JWT_SECRET }}
