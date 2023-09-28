@@ -1,22 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Extension Popup</title>
     <link rel="stylesheet" href="popup.css">
 </head>
+
 <body>
     <div class="container">
+        <!-- Trial Status and Days Left Display -->
+        <div id="trialStatus" class="status-text" style="display: none;">On Trial</div>
+        <div id="trialDaysLeft" class="status-text" style="display: none;"></div>
+
+        <!-- Payment Status Display -->
         <div id="paymentStatus" class="status-text">Inactive</div>
+
+        <!-- Active ON/OFF Button -->
+        <button id="enableButton" class="action-button" style="display: none;">OFF</button>
+
+        <!-- Pay Button -->
+
         <button id="payButton" class="action-button">Pay</button>
+
+        <!-- Subscription Login Info -->
         <div id="subscribedText" class="status-text secondary-text">Subscribed already?</div>
         <button id="loginButton" class="action-button secondary-button">Login</button>
-        <button id="enableButton" class="action-button" style="display: none;">OFF</button>
-        <div id="cancelSubscribedText" class="status-text secondary-text" style="display: none;">Cancel Subscription?</div>
-        <button id="cancelSubscriptionButton" class="action-button secondary-button" style="display: none;">Cancel</button>
+
+        <!-- Cancel Subscription Info (Assumed you wanted this here) -->
+        <div id="cancelSubscribedText" class="status-text secondary-text" style="display: none;">Want to cancel?</div>
+        <button id="cancelSubscriptionButton" class="action-button secondary-button" style="display: none;">Cancel Subscription</button>
+
+        <div id="startTrialText" class="status-text secondary-text" style="display: none;">Try before you buy</div>
+        <button id="startTrialButton" class="action-button secondary-button">Start 7-day Free Trial</button>
     </div>
     <script src="popup.js"></script>
 </body>
+
 </html>
 
