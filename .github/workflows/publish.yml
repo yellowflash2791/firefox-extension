@@ -28,4 +28,4 @@ jobs:
       env:
         WEB_EXT_JWT_ISSUER: ${{ secrets.WEB_EXT_JWT_ISSUER }}
         WEB_EXT_JWT_SECRET: ${{ secrets.WEB_EXT_JWT_SECRET }}
-      run: web-ext sign --api-key=$WEB_EXT_JWT_ISSUER --api-secret=$WEB_EXT_JWT_SECRET --source-dir ./ --artifacts-dir ./
+      run: web-ext sign --api-key=$WEB_EXT_JWT_ISSUER --api-secret=$WEB_EXT_JWT_SECRET --source-dir ./ --artifacts-dir ./ --id="{62e73e16-c99e-4090-be20-c93731bacf79}" 
