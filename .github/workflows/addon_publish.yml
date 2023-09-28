@@ -1,5 +1,8 @@
 name: Publish Firefox Extension on Push
 
+on:
+  push
+
 steps:
   - uses: trmcnvn/firefox-addon@v1
     with:
