@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "PopupBlocker",
-  "version": "0.2",
+  "version": "0.3",
   "description": "Blocks new tab creation",
   "permissions": ["tabs","storage","https://extensionpay.com/*"],
   "browser_action": {
